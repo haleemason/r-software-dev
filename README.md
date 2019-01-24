@@ -1,5 +1,5 @@
 # r-software-dev
-Repo for the course sequence Mastering Software Development in R, available on Coursera. Covers R software development for building data science tools.
+Repository for the course sequence Mastering Software Development in R, available on Coursera. Covers R software development for building data science tools.
 
 ## Docker
 Docker performs operating-system-level virtualization, also known as "containerization" and provides a way for applications to run in a container with all packages and dependencies pre-installed. A Docker container has been built to contain all needed libraries for this course.
