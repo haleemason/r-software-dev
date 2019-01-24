@@ -1,0 +1,41 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-rstudio-test
+    environment:
+      MYSQL_ROOT_PASSWORD: "testpw"
+      MYSQL_DATABASE: "rdev"
+      MYSQL_PASSWORD: "testpw"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./rdev:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
+    restart: always
+    networks:
+      - rstudio_mysql_net
+
+  rstudio:
+    depends_on:
+      - mysql
+    build: .
+    container_name: rstudio-test
+    ports:
+      - "8787:8787"
+    volumes:
+      - ../R/data:/home/rstudio/data
+      - ../R/scripts:/home/rstudio/scripts
+    links:
+      - mysql:mysql
+    restart: always
+    networks:
+      - rstudio_mysql_net
+
+volumes:
+  mysql_data:
+
+networks:
+  rstudio_mysql_net:
+    driver: bridge
