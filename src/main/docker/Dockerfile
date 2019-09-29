@@ -1,0 +1,4 @@
+FROM rocker/tidyverse:3.3.3
+
+# Install packages
+RUN R -e 'install.packages(c("bookdown", "choroplethr", "choroplethrMaps", "data.table", "datasets", "devtools", "dlnm", "dplyr", "faraway", "forcats", "GGally", "ggmap", "ggplot2", "ggthemes", "ghit", "GISTools", "grid", "gridExtra", "httr", "knitr", "leaflet", "lubridate", "magrittr", "methods", "microbenchmark", "package", "pander", "plotly", "profvis", "pryr", "purrr", "rappdirs", "raster", "RColorBrewer", "readr", "rmarkdown", "scales", "sp", "stats", "stringr", "testthat", "tidyr", "tidyverse", "tigris", "titanic", "viridis"), repos="http://cran.us.r-project.org", dependencies=TRUE)'
